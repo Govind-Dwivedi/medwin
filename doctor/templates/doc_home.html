@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Doctor Home</title>
+    </head>
+    <body>
+        <h2>Doctor Home Page</h2>
+        <h4>Welcome {{ user.first_name }} {{ user.last_name }}</h4>
+        <a href="{% url 'logoutUser' %}">Logout</a>
+    </body>
+</html>

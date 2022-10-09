@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <head>
+            <title>Login Page</title>
+        </head>
+        <form method='POST'>
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+                {% if remark %}
+                    <tr>
+                        <td>Remark:</td>
+                        <td>{{ remark }}</td>
+                    </tr>
+                {% endif %}
+            </table>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
