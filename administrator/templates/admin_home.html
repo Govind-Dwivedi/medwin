@@ -6,6 +6,12 @@
     <body>
         <h2>Admin Home Page</h2>
         <h4>Welcome {{ user.first_name }} {{ user.last_name }}</h4>
+        <a href="{% url 'patientsList' %}">Patients List</a>
+        <br><br>
+        <a href="{% url 'doctorsList' %}">Doctors List</a>
+        <br><br>
+        <a href="{% url 'addDoctor' %}">Add Doctor</a>
+        <br><br>
         <a href="{% url 'logoutUser' %}">Logout</a>
     </body>
 </html>

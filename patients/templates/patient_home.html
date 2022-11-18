@@ -6,6 +6,10 @@
     <body>
         <h2>Patient Home Page</h2>
         <h4>Welcome {{ user.first_name }} {{ user.last_name }}</h4>
+        <a href="{% url 'book_Appointment' %}">Book Appointment</a>
+        <br><br>
+        <a href="{% url 'appointHistory' %}">Appointment History</a>
+        <br><br>
         <a href="{% url 'logoutUser' %}">Logout</a>
     </body>
 </html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Patients List</title>
+    </head>
+    <body>
+        <table border="1">
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Email</th>
+            </tr>
+            {% for x in patientsList %}
+                <tr>
+                    <td>{{ x.first_name }}</td>
+                    <td>{{ x.last_name }}</td>
+                    <td>{{ x.email }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

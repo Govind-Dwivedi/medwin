@@ -2,19 +2,31 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import UserCreationForm, LoginForm
 from patients.models import Patient
+from .models import User
 
 def register(request):
     if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        u = User(first_name=first_name, last_name=last_name, email=email, password=password)
+        u.save()
+        p = Patient(user=u)
+        p.save()
+        login(request, u)
+        """
         form = UserCreationForm(request.POST)
         if form.is_valid():
             u = form.save()
             p = Patient(user=u)
             p.save()
-            return redirect('patient_home')
+        """
+        return redirect('patient_home')
     else:
-        form = UserCreationForm()
-    context = { 'form' : form }
-    return render(request, "register.html", context)
+       # form = UserCreationForm()
+        #context = { 'form' : form }
+        return render(request, "register.html")
 
 
 def loginUser(request):
@@ -23,7 +35,7 @@ def loginUser(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         user = authenticate(request, email=email, password=password)
-
+        
         if user is not None:
             login(request, user)
             if user.is_authenticated:

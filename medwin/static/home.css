@@ -1,0 +1,93 @@
+body{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    color: white;
+    /* background-color: rgb(42, 42, 110); */
+    background-image: 
+    url("background.jfif");
+    background-size: cover;
+}
+nav{
+    background-color: black;
+    height: 80px;
+
+}
+label.logo{
+    color: rgb(250, 248, 248);
+    font-size: 35px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    padding: 0px 436px 0px 0px;
+}
+nav ul li{
+    padding-left: 3px;
+}
+nav ul{
+   float: right;
+   font-family: 'Nunito', sans-serif;
+   margin-right: 30px; 
+}
+nav ul li{
+    display: inline-block;
+    line-height: 30px;
+    margin: 0px 10px;
+}
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    
+}
+a.active, a:hover{
+background-color: #bf5b13;
+transition: .5s;
+}
+nav #logoimg{
+    height: 100%;
+    width: 8%;
+    padding: 0px 0px 3px 3px;
+}
+.glass{
+    width: 20.33%;
+    float: right;
+}
+.glass img{
+    height: 215px;
+    width: 215px;
+    margin-top: 80px;
+}
+.name{
+    font-size: 30px;
+    margin-left: 60px;
+    text-align: center;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+}
+.welcome{
+    width:90px ;
+    height: 90px;
+    float: left;
+    margin-top: 120px;
+    margin-left: 110px;
+}
+/* div.logrocket{
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 120px;
+} */
+.wc{
+    font-size: 40px ;
+    margin-top: 40px;
+    float: left;
+    color: white;
+    margin-top: 220px;
+    margin-left: -118px;
+    /* text-align: center; */
+    /* display: block; */
+}

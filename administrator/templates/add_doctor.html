@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Doctor</title>
+    </head>
+    <body>
+        <form method='POST' action = "{% url 'addDoctor' %}">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+                <br>
+                {% if 'remark' %}
+                    <p>{{ remark }}
+                {% endif %}
+            </table>
+            <br>
+            <input type='submit' value='Submit'>
+        </form>
+    </body>
+</html>

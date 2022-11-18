@@ -1,14 +1,63 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
-    <body>
-        <head>
-            <title>MedWin</title>
-        </head>
-        <h1>Welcome to MedWin</h1>
-        <h3>Healthy you, Happy us</h3>
-        <br><br>
-        <a href="{% url 'register' %}">Register</a>
-        <br><br>
-        <a href="{% url 'loginUser' %}">Login</a>
-    </body>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medwin-cares</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <style>
+        body{
+            background-image: url("{% static 'bgimage.jpeg' %}");
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <img id="logoimg" src="logo.jpg" alt="logo">
+            <ul>
+                <label class="logo">Medwin-Cares</label>
+                <li><a class="active" href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="logrocket">
+            <img class="welcome" src="logrocket.jpg" alt="logrocket">
+            <span class="wc">Welcome</span>
+        </div>
+        <div class="container">
+            <div class="glass">
+                <a href={% url 'register' %}>
+                    <img src="patient.jpg" alt="patient">
+                <span class="name">Patient</span>
+                </a>
+            </div>
+
+            <div class="glass">
+                <a href={% url 'loginUser' %}>
+                <img src="doctor.jpg" alt="doctor">
+                <span class="name">Doctor</span>
+                </a>
+            </div>
+            <div class="glass">
+                <a href={% url 'loginUser' %}>
+                <img src="admin.jpg" alt="admin">
+                <span class="name">Admin</span>
+                </a>
+            </div>
+        </div>
+
+
+    </header>
+</body>
+
 </html>
