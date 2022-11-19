@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import permission_required
 from account.models import User
+from patients.models import Patient, Appointment
 from doctor.models import Doctor
 from .forms import addDoctorForm
 
@@ -52,5 +53,31 @@ def addDoctor(request):
 
     context['form'] = addDoctorForm()
     return render(request, 'add_doctor.html', context)
+
+
+@permission_required("administrator.admin_things")
+def removeDoc(request):
+    remark = ''
+    if request.method == 'POST':
+        if User.objects.filter(email= request.POST.get('email')).exists():
+            u = User.objects.get(email= request.POST.get('email'))
+            if u.is_doctor == True:
+                u.is_doctor = False
+                u.save()
+                d = Doctor.objects.get(user=u)
+                apnts = Appointment.objects.filter(doctor=d)
+                if apnts.exists():
+                    for a in apnts:
+                        a.delete()
+                d.delete()
+                p = Patient.objects.get(user=u)
+                p.save()
+                remark = "Task executed successfully, now given user is not a doctor"
+            else:
+                remark = "User is not a doctor"
+        else:
+            remark = "No such user exists"
+    return render(request, 'removeDoc.html', {'remark' : remark})
+    return render(request, 'appointment-history.html', context)
 
 # Create your views here.

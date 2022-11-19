@@ -46,7 +46,7 @@ def loginUser(request):
                 else:
                     return redirect('patient_home')
         else:
-            context['remark'] = "User not found!";
+            context['remark'] = "Either password do not match or user do not found!"
     
     form = LoginForm()
     context['form'] = form

@@ -6,6 +6,14 @@
     <body>
         <h2>Patient Home Page</h2>
         <h4>Welcome {{ user.first_name }} {{ user.last_name }}</h4>
+
+        {% if user.is_administrator %}
+            <h4 align="right"><a href="{% url 'admin_home' %}">Switch to Admin Module</a></h4>
+        {% endif %}
+        {% if requst.user.is_doctor %}
+            <h4 align="right"><a href="{% url 'doc_home' %}">Switch to Doctor Module</a></h4>
+        {% endif %}
+        
         <a href="{% url 'book_Appointment' %}">Book Appointment</a>
         <br><br>
         <a href="{% url 'appointHistory' %}">Appointment History</a>

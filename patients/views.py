@@ -32,18 +32,22 @@ def appointHistory(request):
         appointments = []
 
         for a in appnts:
-            pat_name = a.patient.user.first_name + " " + a.patient.user.last_name
             doc_name = a.doctor.user.first_name + " " + a.doctor.user.last_name
             dict = {
-                'pat_name' : pat_name,
                 'doc_name' : doc_name,
                 'fee' : a.doctor.consultFee,
                 'date' : a.date,
                 'time' : a.time,
+                'comment' : a.doc_comment
             }
             appointments.append(dict)
         
-        context = { 'appointments' : appointments }
+        name = a.patient.user.first_name + " " + a.patient.user.last_name
+
+        context = {
+            'appointments' : appointments,
+            'name' : name
+        }
     return render(request, 'appointment-history.html', context)
 
 

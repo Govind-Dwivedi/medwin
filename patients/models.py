@@ -13,6 +13,7 @@ class Patient(models.Model):
 class Appointment(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    doc_comment = models.CharField(max_length=1000)
     date = models.DateField()
     time = models.TimeField()
 
