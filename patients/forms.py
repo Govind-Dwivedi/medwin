@@ -8,7 +8,7 @@ def giveChoices():
     for d in doctors:
         op = []
         u = User.objects.get(id = d.user_id)
-        choice = u.first_name + u.last_name + " Experience    - " + str(d.experience) + "yrs" + " Fee - " + str(d.consultFee) + "Rs"
+        choice = u.first_name + " " + u.last_name + ", Exp-" + str(d.experience) + "yrs" + ", Fee - " + str(d.consultFee) + "Rs"
         op.append(str(d.id))
         op.append(choice)
         op = tuple(op)
