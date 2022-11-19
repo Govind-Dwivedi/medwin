@@ -6,7 +6,7 @@ class Administrator(models.Model):
     
     class Meta:
         permissions = (
-            ('admin_things', 'All thing that admin can do'),
+            ('admin_things', 'All the things that only admin can do'),
         )
 
     def __str__(self):

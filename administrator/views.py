@@ -78,6 +78,5 @@ def removeDoc(request):
         else:
             remark = "No such user exists"
     return render(request, 'removeDoc.html', {'remark' : remark})
-    return render(request, 'appointment-history.html', context)
 
 # Create your views here.

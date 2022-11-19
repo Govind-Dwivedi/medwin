@@ -1,15 +1,16 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import permission_required
 from patients.models import Appointment
 from .models import Doctor
 
-@login_required
+@permission_required("doctor.doctor_things")
 def doc_home(request):
     if request.user.is_doctor == True:
         return render(request, 'doc_home.html')
     else:
         return redirect('loginUser')
 
+@permission_required("doctor.doctor_things")
 def appointHistory(request):
     d = Doctor.objects.get(user=request.user)
     context = {}
@@ -36,6 +37,7 @@ def appointHistory(request):
         }
     return render(request, 'appointHistory_doc.html', context)
 
+@permission_required("doctor.doctor_things")
 def doc_comment(request, id):
     if request.method == 'POST':
         com = request.POST.get("comment")

@@ -7,7 +7,7 @@
         <h2>Patient Home Page</h2>
         <h4>Welcome {{ user.first_name }} {{ user.last_name }}</h4>
 
-        {% if user.is_administrator %}
+        {% if request.user.is_administrator %}
             <h4 align="right"><a href="{% url 'admin_home' %}">Switch to Admin Module</a></h4>
         {% endif %}
         {% if requst.user.is_doctor %}

@@ -35,7 +35,7 @@ def loginUser(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         user = authenticate(request, email=email, password=password)
-        
+
         if user is not None:
             login(request, user)
             if user.is_authenticated:
@@ -46,7 +46,7 @@ def loginUser(request):
                 else:
                     return redirect('patient_home')
         else:
-            context['remark'] = "Either password do not match or user do not found!"
+            context['remark'] = "Either password do not match or user do not exist!"
     
     form = LoginForm()
     context['form'] = form
