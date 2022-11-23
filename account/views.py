@@ -11,6 +11,7 @@ def register(request):
         email = request.POST.get('email')
         password = request.POST.get('password')
         u = User(first_name=first_name, last_name=last_name, email=email, password=password)
+        u.set_password(password)
         u.save()
         p = Patient(user=u)
         p.save()
@@ -28,12 +29,15 @@ def register(request):
         #context = { 'form' : form }
         return render(request, "register.html")
 
-
 def loginUser(request):
     context = {}
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
+        print(email)
+        print(password)
+        u = User.objects.get(email=email)
+        print(u.check_password(password))
         user = authenticate(request, email=email, password=password)
 
         if user is not None:
@@ -48,9 +52,9 @@ def loginUser(request):
         else:
             context['remark'] = "Either password do not match or user do not exist!"
     
-    form = LoginForm()
-    context['form'] = form
-    return render(request, 'login.html', context)
+    #form = LoginForm()
+    #context['form'] = form
+    return render(request, 'login.html')
     
 
 def logoutUser(request):

@@ -3,10 +3,6 @@ body{
     margin: 0px;
     padding: 0px;
     text-decoration: none;
-    color: white;
-    /* background-color: rgb(42, 42, 110); */
-    background-image: 
-    url("background.jfif");
     background-size: cover;
 }
 nav{
@@ -16,7 +12,7 @@ nav{
 }
 label.logo{
     color: rgb(250, 248, 248);
-    font-size: 35px;
+    font-size: 30px;
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
     padding: 0px 436px 0px 0px;
@@ -43,7 +39,7 @@ nav ul li a{
     text-decoration: none;
     
 }
-a.active, a:hover{
+a.active, .inactive:hover{
 background-color: #bf5b13;
 transition: .5s;
 }
@@ -67,27 +63,28 @@ nav #logoimg{
     text-align: center;
     color: white;
     font-family: 'Nunito', sans-serif;
+
+
 }
 .welcome{
     width:90px ;
-    height: 90px;
+    height: 124px;
     float: left;
     margin-top: 120px;
     margin-left: 110px;
 }
-/* div.logrocket{
-    vertical-align: top;
-    display: inline-block;
-    text-align: center;
-    width: 120px;
-} */
 .wc{
     font-size: 40px ;
     margin-top: 40px;
     float: left;
     color: white;
-    margin-top: 220px;
+    margin-top: 240px;
     margin-left: -118px;
-    /* text-align: center; */
-    /* display: block; */
+}
+.name{
+    text-decoration: none;
+}
+
+.name:hover{
+    color: black;
 }

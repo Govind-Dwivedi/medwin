@@ -22,8 +22,10 @@ def patientsList(request):
 
 @permission_required("administrator.admin_things")
 def doctorsList(request):
-    doctors = User.objects.filter(is_doctor=True).values()
-    context = { 'doctors' : doctors, }
+    users = User.objects.filter(is_doctor=True).values()
+    doctors = Doctor.objects.all().values()
+    data = zip(users, doctors)
+    context = { 'data' : data, }
     return render(request, 'doclist.html', context)
 
 @permission_required("administrator.admin_things")
@@ -78,5 +80,34 @@ def removeDoc(request):
         else:
             remark = "No such user exists"
     return render(request, 'removeDoc.html', {'remark' : remark})
+
+@permission_required("administrator.admin_things")
+def appointHistory(request):
+    context = {}
+    if(Appointment.objects.all().exists()):
+        appnts = Appointment.objects.all()
+        appointments = []
+
+        for a in appnts:
+            p = a.patient
+            d = a.doctor
+            pat_name = p.user.first_name + " " + p.user.last_name
+            doc_name = d.user.first_name + " " + d.user.last_name
+            dict = {
+                'pat_name' : pat_name,
+                'pat_email' : p.user.email,
+                'doc_name' : doc_name,
+                'doc_email' : d.user.email,
+                'fee' : d.consultFee,
+                'date' : a.date,
+                'time' : a.time,
+                'comment' : a.doc_comment
+            }
+            appointments.append(dict)
+
+        context = {
+            'appointments' : appointments,
+        }
+    return render(request, 'appointment-historyAd.html', context)
 
 # Create your views here.

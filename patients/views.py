@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import bookAppntFrom
+from account.models import User
 from patients.models import Patient, Appointment
 from doctor.models import Doctor
 
@@ -14,6 +15,9 @@ def book_Appointment(request):
         doc = Doctor.objects.get(id=doc_id)
         date = request.POST.get("date")
         time = request.POST.get("time")
+        print(request.POST.get("doctor_choice"))
+        print(date)
+        print(time)
         patient = Patient.objects.get(user = request.user)
 
         appointment = Appointment(patient=patient, doctor=doc, date=date, time=time)
@@ -21,7 +25,12 @@ def book_Appointment(request):
         return redirect('patient_home')
 
     else:
-        context = { 'form' : bookAppntFrom() }
+        user = User.objects.filter(is_doctor=True).values()
+        doctor = Doctor.objects.all().values()
+        data = zip(user, doctor)
+        context = {
+            'data' : data
+        }
         return render(request, 'book_Appointment.html', context)
 
 def appointHistory(request):

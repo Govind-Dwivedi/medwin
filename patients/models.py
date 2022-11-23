@@ -1,4 +1,3 @@
-from tkinter import CASCADE
 from django.db import models
 from account.models import User
 from doctor.models import Doctor
@@ -16,6 +15,5 @@ class Appointment(models.Model):
     doc_comment = models.CharField(max_length=1000)
     date = models.DateField()
     time = models.TimeField()
-
-
+    
 # Create your models here.

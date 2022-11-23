@@ -5,6 +5,7 @@ urlpatterns = [
     path('', views.admin_home, name="admin_home"),
     path('patientslist/', views.patientsList, name="patientsList"),
     path('doclist/', views.doctorsList, name="doctorsList"),
+    path('appoinment-history/', views.appointHistory, name="appointHistoryAd"),
     path('add_doctor/', views.addDoctor, name="addDoctor"),
     path('remove-doc/', views.removeDoc, name="removeDoc"),
 ]
