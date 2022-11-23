@@ -1,0 +1,54 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medwin-cares</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+</head>
+<link rel="stylesheet" href="{% static 'home.css' %}">
+<style>
+    body{
+        background-image: url("{% static 'bgimage.jpeg' %}");
+    }
+</style>
+
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'home' %}"><img id="logoimg" src="{% static 'logo.png' %}" alt="logo"></a>
+            <ul>
+                <a href="{% url 'home' %}"><label class="logo">Medwin-Cares</label></a>
+                <li><a class="active" href="{% url 'home' %}">Home</a></li>
+                <li><a class="inactive" href="#">About Us</a></li>
+                <li><a class="inactive" href="{% url 'contact' %}">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="logrocket">
+            <img class="welcome" src="{% static 'logR.png' %}" alt="logrocket">
+            <span class="wc">Welcome</span>
+        </div>
+        <div class="container">
+            <div class="glass">
+                <a href="{% url 'register' %}"><img src="{% static 'patient.jpg' %}" alt="patient"></a>
+                <a href="{% url 'register' %}"><span class="name">Patient</span></a>
+            </div>
+
+            <div class="glass">
+                <a href="{% url 'loginUser' %}"><img src="{% static 'doctor.jpg' %}" alt="doctor"></a>
+                <a href="{% url 'loginUser' %}"><span class="name">Doctor</span></a>
+            </div>
+            <div class="glass">
+                <a href="{% url 'loginUser' %}"><img src="{% static 'admin.jpg' %}" alt="admin"></a>
+                <a href="{% url 'loginUser' %}"><span class="name">Admin</span></a>
+            </div>
+        </div>
+
+    </header>
+</body>
+
+</html>

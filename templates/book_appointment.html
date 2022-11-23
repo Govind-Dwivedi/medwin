@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medwin Cares</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <style>
+        body{
+            background-image : url("{% static 'bgimage.jpeg' %}");
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'book_appointment.css' %}">
+</head>
+<body>
+    <nav>
+        <img id="logoimg" src="{% static 'logo.png' %}" alt="logo">
+        <ul>
+            <label class="logo">Medwin Cares</label>
+            <li><a href="{% url 'logoutUser' %}">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+       <h1 class="head"> Welcome Patient Name </h1>
+            <div class="sidenav">
+                <a href="{% url 'patient_home' %}">Dashboard</a>
+                <a class="active" href="{% url 'book_Appointment' %}">Book Appointment</a>
+                <a href="{% url 'appointHistory' %}">Appointment History</a>
+            </div>
+            <img src="{% static 'dashlogo.png' %}" alt="dashlogo" class="dashlogo">
+    </div>
+ 
+  <div class="contactForm">
+    <form action="{% url 'book_Appointment' %}" method='POST'>
+        {% csrf_token %}
+        <h2>Create Your Appointment</h2>
+        <div class="inputBox">
+            <div class="col-md-4">
+                <label for="inputState" class="form-label">Doctors</label>
+                <select id="inputState" name="doctor_choice" class="form-select">
+                    {% for user, doctor in data %}
+                        <option value="{{ doctor.id }}">{{ user.first_name }} {{ user.last_name }},  Exp - {{ doctor.experience }},  Fee - {{ doctor.consultFee }}</option>
+                    {% endfor %}
+                </select>
+              </div>
+        </div>
+        <div class="inputBox">
+            <label for="date">Date</label>
+            <input type="date" name="date" required="required">
+        </div>
+        <div class="inputBox">
+            <label for="Time">Time</label>
+            <input type="time" name="time" required="required">
+        </div>
+        <div class="inputBox">
+            <input type="submit" value="Book">
+        </div>
+    </form>
+</div>

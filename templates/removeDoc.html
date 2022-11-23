@@ -1,0 +1,81 @@
+<!--<!DOCTYPE html>
+<html>
+    <head>
+        <title>Remove Doctor</title>
+    </head>
+    <body>
+        <form action={% url 'removeDoc' %} method='POST'>
+            {% csrf_token %}
+            {% if 'remark' %}
+                {{ remark }}
+            {% endif %}
+            <br><br>
+            <label for='email'><b>Email:</b></label>
+            <input type='text' name='email'>
+            <br><br>
+            <input type='submit' value='Submit'>
+        </form>
+    </body>
+</html>
+-->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medwin Cares</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <style>
+        body{
+        background-image : url("{% static 'bgimage.jpeg' %}");
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'add_doctor.css' %}">
+</head>
+<body>
+    <nav>
+        <img id="logoimg" src="{% static 'logo.png' %}" alt="logo">
+        <ul>
+            <label class="logo">Medwin Cares</label>
+            <li><a href="{% url 'logoutUser' %}">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1 class="head"> Welcome {{ request.user.first_name|upper }} {{ request.user.last_name|upper }}</h1>
+    
+        <div class="sidenav">
+            <a href="{% url 'admin_home' %}">Dashboard</a>
+            <a href="{% url 'doctorsList' %}">Doctor List</a>
+            <a href="{% url 'patientsList' %}">Patient List</a>
+            <a href="{% url 'appointHistoryAd' %}">Appointment Details</a>
+            <a href="{% url 'addDoctor' %}">Add Doctor</a>
+            <a class="active" href="{% url 'removeDoc' %}">Remove Doctor</a>
+            <a href="#">Messages</a>
+        </div>
+        
+        <div class="contactForm" style="margin-top : 80px; margin-right : 350px">
+            <form action={% url 'removeDoc' %} method='POST'>
+                {% csrf_token %}
+                {% if 'remark' %}
+                    <p>{{ remark }}</p>
+                {% endif %}
+                <br><br>
+                <div class="inputBox">
+                    <label for='email'><b>Email:</b></label>
+                    <input type='text' id='email' name='email'>
+                </div>
+                <br><br>
+                <div class="inputBox">
+                    <input type='submit' value='Submit'>
+                </div>
+            </form>
+        </div>
+            
+    </div>
+</body>
+</html>

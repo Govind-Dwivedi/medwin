@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medwin Cares</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'lists.css' %}">
+    <style>
+      body{
+        background-image : url("{% static 'bgimage.jpeg' %}");
+      }
+    </style>
+</head>
+<body>
+    <nav>
+        <img id="logoimg" src="{% static 'logo.png' %}" alt="logo">
+        <ul>
+            <label class="logo">Medwin Cares</label>
+            <li><a href="{% url 'logoutUser' %}">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+       <h1 class="head"> Welcome {{ request.user.first_name|upper }} {{ request.user.last_name|upper }}</h1>
+       
+            <div class="sidenav">
+              <a href="{% url 'admin_home' %}">Dashboard</a>
+              <a href="{% url 'doctorsList' %}">Doctor List</a>
+              <a href="{% url 'patientsList' %}">Patient List</a>
+              <a class="active" href="{% url 'appointHistoryAd' %}">Appointment Details</a>
+              <a href="{% url 'addDoctor' %}">Add Doctor</a>
+              <a href="{% url 'removeDoc' %}">Remove Doctor</a>
+              <a href="#">Messages</a>
+            </div>
+            <img src="{% static 'dashlogo.png' %}"  alt="dashlogo" class="dashlogo">
+            
+            <table class="table table-hover" border=1 style="padding-left: 250px;" id="dev-table">
+                <thead>
+                  <tr>
+                      <th>Patient Name</th>
+                      <th>Patient Email</th>
+                      <th>Doctor Name</th>
+                      <th>Doctor Email</th>
+                      <th>Fee</th>
+                      <th>Appointment Date</th>
+                      <th>Appointment Time</th>
+                      <th>Dotor's Comment</th>
+                  </tr>
+              </thead>
+              {% for x in appointments %}
+                  <tr>
+                      <td>{{ x.pat_name }}</td>
+                      <td>{{ x.pat_email }}</td>
+                      <td>{{ x.doc_name }}</td>
+                      <td>{{ x.doc_email }}</td>
+                      <td>{{ x.fee }}</td>
+                      <td>{{ x.date }}</td>
+                      <td>{{ x.time }}</td>
+                      <td>{{ x.comment }}</td>
+                  </tr>
+              {% endfor %}
+              </table>
+</body>
+</html>
+<!--{% load static %}
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static 'appointHistory.css' %}">
+<style>
+  body{
+    background-image : url("{% static 'bgimage.jpeg' %}");
+  }
+</style>
+<title>Appointment History </title>
+</head>
+
+<body>
+    <div class="sidenav">
+        <a href="{% url 'admin_home' %}">Dashboard</a>
+        <a href="{% url 'doctorsList' %}">Doctor List</a>
+        <a href="{% url 'patientsList' %}">Patient List</a>
+        <a class="active" href="{% url 'appointHistoryAd' %}">Appointment Details</a>
+        <a href="{% url 'addDoctor' %}">Add Doctor</a>
+        <a href="{% url 'removeDoc' %}">Remove Doctor</a>
+        <a href="#">Messages</a>
+  </div>
+<div class="container">
+<div style = "background-image: url('{% static "bgimage.jpeg" %}');"  >
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 class="panel-title" style="padding-top: 50px; padding-left: 200px;"><center>Welcome {{ name|upper }} ! Your appointments</center></h2>
+    </div>
+    <center>
+        <table class="table table-hover" border=1 style="padding-left: 200px; background-color: white;" id="dev-table">
+          <thead>
+            <tr>
+                <th>Patient Name</th>
+                <th>Patient Email</th>
+                <th>Doctor Name</th>
+                <th>Doctor Email</th>
+                <th>Fee</th>
+                <th>Appointment Date</th>
+                <th>Appointment Time</th>
+                <th>Dotor's Comment</th>
+            </tr>
+        </thead>
+        {% for x in appointments %}
+            <tr>
+                <td>{{ x.pat_name }}</td>
+                <td>{{ x.pat_email }}</td>
+                <td>{{ x.doc_name }}</td>
+                <td>{{ x.doc_email }}</td>
+                <td>{{ x.fee }}</td>
+                <td>{{ x.date }}</td>
+                <td>{{ x.time }}</td>
+                <td>{{ x.comment }}</td>
+            </tr>
+        {% endfor %}
+      </table>
+  </center>
+  </div>
+</div>
+</div>
+
+</body>
+</html>
+-->

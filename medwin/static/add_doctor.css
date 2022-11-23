@@ -1,0 +1,148 @@
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+    color: white;
+}
+nav{
+    background-color: black;
+    height: 80px;
+}
+label.logo{
+    color: rgb(250, 248, 248);
+    font-size: 30px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    padding: 0px 713px 0px 0px;
+}
+nav ul li{
+    padding-left: 3px;
+}
+nav ul{
+   float: right;
+   font-family: 'Nunito', sans-serif;
+   margin-right: 30px; 
+}
+nav ul li{
+    display: inline-block;
+    line-height: 30px;
+    margin: 0px 10px;
+}
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    
+}
+nav #logoimg{
+    height: 100%;
+    width: 8%;
+    padding: 0px 0px 3px 3px;
+}
+.glass{
+    width: 20.33%;
+    float: right;
+}
+.glass img{
+    height: 215px;
+    width: 215px;
+    margin-top: 80px;
+}
+.name{
+    font-size: 30px;
+    margin-left: 60px;
+    text-align: center;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+}
+.head{
+    text-align: center; 
+    margin-top: 20px;
+}
+
+.sidenav {
+    height: 100%; 
+    width: 213px; 
+    position: fixed; 
+    z-index: 1; 
+    top: 86; 
+    left: 0;
+    /* background-color: #111;  */
+    overflow-x: hidden; 
+    padding-top: 18px;
+  }
+  
+  .sidenav a {
+    padding: 6px 14px 15px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color:white;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color: rgb(240, 222, 62);
+    
+  }
+  a.active{
+    background-color:#bf5b13;
+    transition: .5s;
+  }
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  ul li a:hover{
+    color: rgb(240, 222, 62);
+  }
+  
+.dashlogo{
+    position: relative;
+    height: 195px;
+    width: 252px;
+    margin-top: 250px;
+    margin-left: -52px;
+}
+.contactForm{
+    width: 50%;
+    padding: 8px;
+    background-color: rgb(42 49 118);
+    float: right;
+    margin-top: -410px;
+    margin-right: 162px;
+}
+.contactForm .inputBox #top{
+    margin-top: 10px;
+
+}
+.contactForm .inputBox{
+    position: relative;
+    width: 100%;
+    /* margin-top: 12px; */
+}
+.contactForm .inputBox input{
+    width: 100%;
+    padding: 4px 0px;
+    font-size: 16px;
+    margin: 10px 0px;
+    border: none;
+    border-bottom: 0px solid ;
+    outline: none;
+    resize: none;
+
+}
+.contactForm .inputBox input[type="submit"]{
+    width: 110px;
+    background:white ;
+    color: black;
+    font-weight: 460;
+    border: none;
+    cursor: pointer;
+    padding: 11px;
+    font-size: 18px;
+}

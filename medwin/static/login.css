@@ -1,0 +1,102 @@
+*{
+    
+    box-sizing:border-box;
+}
+
+    body{
+        font-family: Verdana ,Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 17px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        margin: 0px;
+        padding: 0px;
+
+    }
+    nav{
+        background-color: black;
+        height: 80px;
+    
+    }
+    label.logo{
+        color: rgb(250, 248, 248);
+        font-size: 30px;
+        font-family: 'Nunito', sans-serif;
+        font-weight: bold;
+        padding: 0px 436px 0px 0px;
+    }
+    nav ul li{
+        padding-left: 3px;
+    }
+    nav ul{
+       float: right;
+       font-family: 'Nunito', sans-serif;
+       margin-right: 30px; 
+    }
+    nav ul li{
+        display: inline-block;
+        line-height: 30px;
+        margin: 0px 10px;
+    }
+    nav ul li a{
+        color: white;
+        font-size: 17px;
+        padding: 7px 13px;
+        border-radius: 3px;
+        text-transform: uppercase;
+        text-decoration: none;
+        
+    }
+   .inactive:hover{
+    background-color: #bf5b13;
+    transition: .5s;
+    }
+    nav #logoimg{
+        height: 100%;
+        width: 8%;
+        padding: 0px 0px 3px 3px;
+    }
+    .container {
+        background-color: #f2f2f2;
+        padding: 5px 20px 15px 20px;
+        border: 1px solid lightgray;
+        border-radius: 400px;
+        margin-top: 65px;
+        width: 93%;
+        margin-left: 32px;
+    }
+    input[type="email"],
+    input[type="password"],
+    textarea
+    {
+        width:22%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 30px;
+        margin: 10px;
+        
+    }
+    .mainheading{
+        font-size: 30px;
+        text-align: center;
+    }
+    input[type="submit"]{
+        background-color: lightblue;
+        color: black;
+        padding: 10px 18px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 25px;
+    }
+    .text-center{
+        text-align: center;
+        margin-top: 2%;
+    }
+    input[type="submit"]:hover{
+        background-color: white;
+        
+    }
+    label{
+        padding: 80px;
+    }

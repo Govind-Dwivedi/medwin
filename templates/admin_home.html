@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medwin Cares</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <style>
+        body{
+        background-image : url("{% static 'bgimage.jpeg' %}");
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'admin_home.css' %}">
+</head>
+<body>
+    <nav>
+        <img id="logoimg" src="{% static 'logo.png' %}" alt="logo">
+        <ul>
+            <label class="logo">Medwin Cares</label>
+            <li><a href="{% url 'logoutUser' %}">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1 class="head"> Welcome {{ request.user.first_name|upper }} {{ request.user.last_name|upper }}</h1>
+
+    <div class="sections">
+            <a href="{% url 'patient_home' %}"><button type='button'>Patient</button></a>
+        {% if request.user.is_doctor %}
+            <a href="{% url 'doc_home' %}"><button type='button'>Doctor</button></a>
+        {% endif %}
+    </div>
+            <div class="sidenav">
+                <a class="active" href="{% url 'admin_home' %}">Dashboard</a>
+                <a href="{% url 'doctorsList' %}">Doctor List</a>
+                <a href="{% url 'patientsList' %}">Patient List</a>
+                <a href="{% url 'appointHistoryAd' %}">Appointment Details</a>
+                <a href="{% url 'addDoctor' %}">Add Doctor</a>
+                <a href="{% url 'removeDoc' %}">Remove Doctor</a>
+                <a href="#">Messages</a>
+            </div>
+            
+    
+    {% block content %}
+            <div class="book">
+                <h1>Doctor List</h1>
+                
+                <h1>Patient List</h1>
+            </div>
+            <div class="book-2">
+                <h1>Appointment Details</h1>
+
+                <h1> Manage Doctors</h1>
+            </div>
+
+            
+           
+            <div class="appoint">
+                <h4><a class="space" href="{% url 'doctorsList' %}" style="color: rgb(240, 222, 62); text-decoration: none;">View Doctors</a></h4>
+                <h4><a class="space" href="{% url 'patientsList' %}" style="color: rgb(240, 222, 62); text-decoration: none;">View Patients</a></h4> 
+            </div>
+            <div class="appoint-2">
+                <h4><a class="space" href="{% url 'appointHistoryAd' %}" style="color: rgb(240, 222, 62); text-decoration: none;">View Appointment</a></h4>
+                <h4><a class="space" href="{% url 'addDoctor' %}" style="color: rgb(240, 222, 62); text-decoration: none;">Add Doctors</a></h4>
+                
+            </div>
+            {% endblock content %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!--
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Doctor Home</title>
+    </head>
+    <body>
+        <h2>Doctor Home Page</h2>
+        <h4>Welcome {{ user.first_name }} {{ user.last_name }}</h4>
+
+        <h4 align="right"><a href="{% url 'patient_home' %}">Switch to Patient Module</a></h4>
+        {% if requst.user.is_administrator %}
+            <h4 align="right"><a href="{% url 'admin_home' %}">Switch to Admin Module</a></h4>
+        {% endif %}
+        
+        <br><br>
+        <a href="{% url 'appointHistory_doc' %}">Appointments</a>
+        <br><br>
+        <a href="{% url 'logoutUser' %}">Logout</a>
+    </body>
+</html>
+-->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medwin Cares</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <style>
+        body{
+            background-image : url("{% static 'bgimage.jpeg' %}")
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'patient_dashboard.css' %}">
+</head>
+<body>
+    <nav>
+        <img id="logoimg" src="{% static 'logo.png' %}" alt="logo">
+        <ul>
+            <label class="logo">Medwin Cares</label>
+            <li><a href="{% url 'logoutUser' %}">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="sections">
+        <a href="{% url 'patient_home' %}"><button type='button'>Patient</button></a>
+        {% if request.user.is_administrator %}
+            <a href="{% url 'admin_home' %}"><button type='button'>Admin</button></a>
+        {% endif %}
+    </div>
+
+    <div class="container">
+       <h1 class="head">Welcome {{ user.first_name }} {{ user.last_name }}</h1>
+            <div class="sidenav">
+                <a class="active" href="{% url 'doc_home' %}">Dashboard</a>
+                <a href="{% url 'appointHistory_doc' %}">Appointments</a>
+            </div>
+            <div class="book">
+                <h1>Appointment History</h1>
+            </div>
+            <div class="appoint">
+                <h4><a class="space" href="{% url 'appointHistory_doc' %}" style="color: rgb(240, 222, 62); text-decoration: none;">View appointment history</a></h4>
+            </div>
+    </div>
+         
+</body>
+</html>

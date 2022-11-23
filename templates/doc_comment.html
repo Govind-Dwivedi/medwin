@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add comment</title>
+    </head>
+    <body>
+        <form action="{% url 'doc_comment' id %}" method='POST'>
+            {% csrf_token %}
+            <table border='1'>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Appointment Date</th>
+                    <th>Appointment Time</th>
+                </tr>
+                <tr>
+                    <td>{{ appointment.pat_name }}</td>
+                    <td>{{ appointment.email }}</td>
+                    <td>{{ appointment.date }}</td>
+                    <td>{{ appointment.time }}</td>
+                </tr>
+            </table>
+            <br><br><br>
+            <b>Comment:</b>
+            <input type='textarea' name='comment'>
+            <br><br>
+            <input type='submit' value='Submit'>
+        </form>
+    </body>
+</html>

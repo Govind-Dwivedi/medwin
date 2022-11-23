@@ -1,0 +1,193 @@
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+    color: white;
+    
+}
+nav{
+    background-color: black;
+    height: 80px;
+
+}
+label.logo{
+    color: rgb(250, 248, 248);
+    font-size: 30px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    padding: 0px 713px 0px 0px;
+}
+nav ul li{
+    padding-left: 3px;
+}
+nav ul{
+   float: right;
+   font-family: 'Nunito', sans-serif;
+   margin-right: 30px; 
+}
+nav ul li{
+    display: inline-block;
+    line-height: 30px;
+    margin: 0px 10px;
+}
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    
+}
+a.active, a:hover{
+    background-color: #bf5b13;
+    transition: 5s;
+}
+
+nav #logoimg{
+    height: 100%;
+    width: 8%;
+    padding: 0px 0px 3px 3px;
+}
+.glass{
+    width: 20.33%;
+    float: right;
+}
+.glass img{
+    height: 215px;
+    width: 215px;
+    margin-top: 80px;
+}
+.name{
+    font-size: 30px;
+    margin-left: 60px;
+    text-align: center;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+}
+.head{
+    text-align: center; 
+    margin-top: 20px;
+}
+
+.sidenav {
+    height: 100%; 
+    width: 213px; 
+    position: fixed; 
+    z-index: 1; 
+    top: 86; 
+    left: 0;
+    overflow-x: hidden; 
+    padding-top: 100px;
+  }
+  
+  .sidenav a {
+    padding: 6px 14px 15px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color:white;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color: rgb(240, 222, 62);
+    
+  }
+  a.active{
+    color:rgb(240, 222, 62);
+    transition: .5s;
+  }
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  ul li a:hover{
+    color: rgb(240, 222, 62);
+  }
+  div.book {
+  height: 38%;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  margin-left: 65px;
+  padding: 3px;
+  word-spacing: 3px;
+  text-indent:10em; 
+  font-size: 18px;
+}
+div.book-2{
+    height: 28%; /* 38% */
+    width: 100%;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    margin-left: 65px;
+    margin-top: 300px;
+    bottom: 40px;
+    padding: 3px;
+    word-spacing: 3px;
+    text-indent:10em; 
+
+  }
+
+
+hr {
+    width: 77%;
+    float: left;
+    margin-top: -10px;
+}
+div.appoint{
+    height: 38%;
+    width: 95%; /* 100% */
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+    text-indent:16em; 
+    margin-top: 40px;
+   font-size: 20px;
+   margin-right: 80px;
+}
+div.appoint-2{
+    height: 24%; /* 38% */
+    width: 100%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    margin-left: 36px;
+    text-indent:16em; 
+    margin-top: 40px;
+    bottom: 70px;
+    
+}
+
+.sections button{
+    background-color: #800080;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.sections button{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #800080;
+}
+
+.sections button:hover {
+    background-color: #800080;
+    color: white;
+}

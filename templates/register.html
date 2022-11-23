@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'register.css' %}">
+    <style>
+        body{
+            background-image: url("{% static 'bgimage.jpeg' %}");
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}"><img id="logoimg" src="{% static 'logo.png' %}" alt="logo"></a>
+        <ul>
+            <label class="logo">Medwin-Cares</label>
+            <li><a class="inactive" href="{% url 'home' %}">Home</a></li>
+            <li><a class="inactive" href="#">About Us</a></li>
+            <li><a class="inactive" href="{% url 'contact' %}">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class ="container">
+        <form action="{% url 'register' %}" method='POST'>
+            {% csrf_token %}
+            <h1 class="main_heading">Register as a Patient</h1>
+            
+            <label> First Name : * </label> <input type= "text" id="first_name" name="first_name" required>
+            <label> Last Name :*</label> <input  type = "text" id="last_name" name ="last_name" required>
+            <br>
+        
+            <label>Email : *</label> <input type = "email" name="email" id="email">
+            <br>
+
+            <label>Password: *</label><input type="password" name="password" id="password">
+            <label> Confirm Password: *</label> <input type="password" name="password2" id="password2">
+            <br>
+            
+            <a href="{% url 'loginUser' %}"><h4>Already have an account?</h4></a>
+            <br>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+</body>
+</html>
